@@ -21,7 +21,7 @@ namespace Parquet.Data.Concrete
 
       protected override void WriteOne(BinaryWriter writer, byte value)
       {
-         writer.Write(value);
+         writer.Write(Convert.ToInt32(value));
       }
    }
 }

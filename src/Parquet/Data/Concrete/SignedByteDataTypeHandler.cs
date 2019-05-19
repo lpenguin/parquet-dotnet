@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace Parquet.Data.Concrete
 {
@@ -16,7 +17,7 @@ namespace Parquet.Data.Concrete
 
       protected override void WriteOne(BinaryWriter writer, sbyte value)
       {
-         writer.Write(value);
+         writer.Write(Convert.ToInt32(value));
       }
    }
 }
