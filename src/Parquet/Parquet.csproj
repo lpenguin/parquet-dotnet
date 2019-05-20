@@ -18,7 +18,7 @@
   </PropertyGroup>
 
    <PropertyGroup Condition=" '$(OS)' != 'Windows_NT' ">
-      <TargetFrameworks>netstandard1.4</TargetFrameworks>
+      <TargetFrameworks>net45;net471;net472</TargetFrameworks>
    </PropertyGroup>
 
    <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
