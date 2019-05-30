@@ -3,7 +3,6 @@ using System.Buffers;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
-using System.Text;
 using Parquet.File.Streams;
 using Snappy.Sharp;
 
@@ -52,8 +51,7 @@ namespace Parquet.File
             default:
                throw new NotImplementedException($"unknown compression method {compressionMethod}");
          }
-         
-         return new GapStream(dest, leaveOpen: leaveNakedOpen);
+         return new GapStream(new BufferedStream(dest, 2048), leaveOpen: leaveNakedOpen);
       }
 
       public static BytesOwner ReadPageData(Stream nakedStream, Thrift.CompressionCodec compressionCodec,
