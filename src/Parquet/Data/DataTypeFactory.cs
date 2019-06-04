@@ -10,8 +10,8 @@ namespace Parquet.Data
       private static readonly List<IDataTypeHandler> _allDataTypes = new List<IDataTypeHandler>
       {
          // special types
-         new DateTimeOffsetDataTypeHandler(),
-         new DateTimeDataTypeHandler(),
+//         new DateTimeOffsetDataTypeHandler(),
+//         new DateTimeDataTypeHandler(),
          new IntervalDataTypeHandler(),
          new DecimalDataTypeHandler(),
 
@@ -22,6 +22,7 @@ namespace Parquet.Data
          new Int16DataTypeHandler(),
          new UnsignedInt16DataTypeHandler(),
          new Int32DataTypeHandler(),
+         new Int32DateTimeDataTypeHandler(),
          new Int64DataTypeHandler(),
          new Int96DataTypeHandler(),
          new FloatDataTypeHandler(),

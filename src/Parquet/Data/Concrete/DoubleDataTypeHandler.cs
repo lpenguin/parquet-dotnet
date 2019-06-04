@@ -27,8 +27,18 @@ namespace Parquet.Data.Concrete
       {
          // casing to an array of TSystemType means we avoid Array.GetValue calls, which are slow
          var typedArray = (double[]) values;
-         var bytes = GetBytes(typedArray);
-         writer.BaseStream.Write(bytes, 0, bytes.Length);
+         if (BitConverter.IsLittleEndian)
+         {
+            var bytes = GetBytes(typedArray);
+            writer.BaseStream.Write(bytes, 0, bytes.Length);
+         }
+         else
+         {
+            foreach (var value in typedArray)
+            {
+               writer.Write(value);
+            }
+         }
       }
    }
 }

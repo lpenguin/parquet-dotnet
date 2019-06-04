@@ -61,6 +61,11 @@
       Int64,
 
       /// <summary>
+      /// 64 bit integer which is already encoded date 
+      /// </summary>
+      Int32Date,
+      
+      /// <summary>
       /// 96 bit integer
       /// </summary>
       Int96,
