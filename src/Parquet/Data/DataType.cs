@@ -71,6 +71,12 @@
       ByteArray,
 
       /// <summary>
+      /// Array of bytes which is already encoded string
+      /// </summary>
+      ByteArrayString,
+
+      
+      /// <summary>
       /// UTF-8 string
       /// </summary>
       String,

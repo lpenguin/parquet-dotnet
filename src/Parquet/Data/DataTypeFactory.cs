@@ -26,7 +26,8 @@ namespace Parquet.Data
          new Int96DataTypeHandler(),
          new FloatDataTypeHandler(),
          new DoubleDataTypeHandler(),
-         new StringDataTypeHandler(),
+         new ByteArrayStringDataTypeHandler(),
+//         new StringDataTypeHandler(),
          new ByteArrayDataTypeHandler(),
 
          // composite types

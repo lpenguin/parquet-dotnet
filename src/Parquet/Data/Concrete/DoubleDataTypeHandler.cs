@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
 using Parquet.Data;
 
@@ -16,9 +17,18 @@ namespace Parquet.Data.Concrete
          return reader.ReadDouble();
       }
 
-      protected override void WriteOne(BinaryWriter writer, double value)
+      static byte[] GetBytes(double[] values) {
+         var result = new byte[values.Length * sizeof(double)];
+         Buffer.BlockCopy(values, 0, result, 0, result.Length);
+         return result;
+      }
+      
+      public override void Write(Thrift.SchemaElement tse, BinaryWriter writer, IList values, Thrift.Statistics statistics)
       {
-         writer.Write(value);
+         // casing to an array of TSystemType means we avoid Array.GetValue calls, which are slow
+         var typedArray = (double[]) values;
+         var bytes = GetBytes(typedArray);
+         writer.BaseStream.Write(bytes, 0, bytes.Length);
       }
    }
 }
